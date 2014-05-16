@@ -111,7 +111,7 @@ mountproc_mnt_3(MountDir0, Clnt, #state{debug = Debug} = State) ->
             {ok, {Addr, _Port}}= rpc_server:client_ip(Clnt),
             mount_add_entry(MountDir, Addr),
             %% @todo gen nfs3_fh
-            {reply, {'MNT3_OK', {MountDir, []}}, State};
+            {reply, {'MNT3_OK', {MountDir, [0]}}, State};
         false ->
             {reply, {'MNT3ERR_NOTDIR', []}, State}
     end.
