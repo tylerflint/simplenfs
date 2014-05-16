@@ -228,6 +228,7 @@ nfsproc3_getattr_3({{Path}}, Clnt, #state{debug = Debug} = State) ->
     end,
     case file:read_file_info(Path, [{time, posix}]) of
         {ok, FileInfo} ->
+            io:format(user,"[getattr]response: ~p~n",[FileInfo]),
             {reply, 
             {'NFS3_OK',
             {
