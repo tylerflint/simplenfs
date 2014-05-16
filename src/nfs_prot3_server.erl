@@ -45,7 +45,7 @@
 init(_Args) ->
     Debug = case application:get_env(simplenfs, debug) of
         undefined ->
-            false;
+            true;
         {ok, Val} ->
             Val
     end,
